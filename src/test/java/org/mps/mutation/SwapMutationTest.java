@@ -39,7 +39,7 @@ public class SwapMutationTest {
 
     @Test
     @DisplayName("mutate: cuando el individuo pasado es nulo, debe lanzar una excepción")
-    public void mutate_WhenNullIndividual_ThrowsException() {
+    public void mutate_WhenNullIndividual_ThrowsEvolutionaryAlgorithmException() {
         // Act & Assert
         assertThrows(EvolutionaryAlgorithmException.class, () -> swapMutation.mutate(null));
     }
