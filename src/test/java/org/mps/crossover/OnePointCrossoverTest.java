@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class OnePointCrossoverTest {
 
-    static CrossoverOperator crossoverOperator;
+    private static CrossoverOperator crossoverOperator;
 
     @BeforeAll
     public static void setUp() {
@@ -40,7 +40,7 @@ public class OnePointCrossoverTest {
     }
 
     @Test
-    @DisplayName("Test de prueba para el método crossover, cuando al menos uno de los padres es nulo, debe lanzar una excepción")
+    @DisplayName("crossover: cuando al menos uno de los padres es nulo, debe lanzar una excepción")
     public void crossover_WhenNullParent_ThrowsEvolutionaryAlgorithmException() {
 
         // Arrange
@@ -54,7 +54,7 @@ public class OnePointCrossoverTest {
     }
 
     @Test
-    @DisplayName("Test de prueba para el método crossover, cuando los padres tienen diferente longitud, debe lanzar una excepción")
+    @DisplayName("crossover: cuando los padres tienen diferente longitud, debe lanzar una excepción")
     public void crossover_WhenDifferentLengthParents_ThrowsEvolutionaryAlgorithmException() {
 
         // Arrange
@@ -66,7 +66,7 @@ public class OnePointCrossoverTest {
     }
 
     @Test
-    @DisplayName("Test de prueba para el método crossover, cuando un padre tiene longitud 0, debe lanzar una excepción")
+    @DisplayName("crossover: cuando un padre tiene longitud 0, debe lanzar una excepción")
     public void crossover_WhenEmptyParent_ThrowsEvolutionaryAlgorithmException() {
 
         // Arrange

@@ -30,25 +30,25 @@ import org.mps.EvolutionaryAlgorithmException;
 public class SwapMutation implements MutationOperator {
     private Random random;
 
-<span class="nc" id="L33">    public SwapMutation() {</span>
-<span class="nc" id="L34">        this.random = new Random();</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L33">    public SwapMutation() {</span>
+<span class="fc" id="L34">        this.random = new Random();</span>
+<span class="fc" id="L35">    }</span>
 
     @Override
     public int[] mutate(int[] individual) throws EvolutionaryAlgorithmException {
         int[] mutatedIndividual;
-<span class="nc bnc" id="L40" title="All 4 branches missed.">        if (individual != null &amp;&amp; individual.length &gt; 0) {</span>
-<span class="nc" id="L41">            mutatedIndividual = individual.clone();</span>
-<span class="nc" id="L42">            int index1 = random.nextInt(individual.length);</span>
-<span class="nc" id="L43">            int index2 = random.nextInt(individual.length);</span>
+<span class="fc bfc" id="L40" title="All 4 branches covered.">        if (individual != null &amp;&amp; individual.length &gt; 0) {</span>
+<span class="fc" id="L41">            mutatedIndividual = individual.clone();</span>
+<span class="fc" id="L42">            int index1 = random.nextInt(individual.length);</span>
+<span class="fc" id="L43">            int index2 = random.nextInt(individual.length);</span>
             // Intercambiar dos elementos en la posición index1 y index2
-<span class="nc" id="L45">            int temp = mutatedIndividual[index1];</span>
-<span class="nc" id="L46">            mutatedIndividual[index1] = mutatedIndividual[index2];</span>
-<span class="nc" id="L47">            mutatedIndividual[index2] = temp;</span>
-<span class="nc" id="L48">        } else {</span>
-<span class="nc" id="L49">            throw new EvolutionaryAlgorithmException(&quot;No se puede realizar la mutación&quot;);</span>
+<span class="fc" id="L45">            int temp = mutatedIndividual[index1];</span>
+<span class="fc" id="L46">            mutatedIndividual[index1] = mutatedIndividual[index2];</span>
+<span class="fc" id="L47">            mutatedIndividual[index2] = temp;</span>
+<span class="fc" id="L48">        } else {</span>
+<span class="fc" id="L49">            throw new EvolutionaryAlgorithmException(&quot;No se puede realizar la mutación&quot;);</span>
         }
-<span class="nc" id="L51">        return mutatedIndividual;</span>
+<span class="fc" id="L51">        return mutatedIndividual;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
