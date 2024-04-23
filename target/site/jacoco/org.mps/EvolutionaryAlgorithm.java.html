@@ -35,56 +35,61 @@ public class EvolutionaryAlgorithm {
 
 
     public EvolutionaryAlgorithm(SelectionOperator selectionOperator, MutationOperator mutationOperator,
-<span class="nc" id="L38">            CrossoverOperator crossoverOperator) throws EvolutionaryAlgorithmException {</span>
-<span class="nc bnc" id="L39" title="All 6 branches missed.">        if (selectionOperator == null || mutationOperator == null || crossoverOperator == null) {</span>
-<span class="nc" id="L40">            throw new EvolutionaryAlgorithmException(&quot;Argumentos nulos&quot;);</span>
+<span class="fc" id="L38">            CrossoverOperator crossoverOperator) throws EvolutionaryAlgorithmException {</span>
+<span class="fc bfc" id="L39" title="All 6 branches covered.">        if (selectionOperator == null || mutationOperator == null || crossoverOperator == null) {</span>
+<span class="fc" id="L40">            throw new EvolutionaryAlgorithmException(&quot;Argumentos nulos&quot;);</span>
         }
-<span class="nc" id="L42">        this.selectionOperator = selectionOperator;</span>
-<span class="nc" id="L43">        this.mutationOperator = mutationOperator;</span>
-<span class="nc" id="L44">        this.crossoverOperator = crossoverOperator;</span>
-<span class="nc" id="L45">    }</span>
+<span class="fc" id="L42">        this.selectionOperator = selectionOperator;</span>
+<span class="fc" id="L43">        this.mutationOperator = mutationOperator;</span>
+<span class="fc" id="L44">        this.crossoverOperator = crossoverOperator;</span>
+<span class="fc" id="L45">    }</span>
 
     public MutationOperator getMutationOperator() {
-<span class="nc" id="L48">        return mutationOperator;</span>
+<span class="fc" id="L48">        return mutationOperator;</span>
     }
 
     public void setMutationOperator(MutationOperator mutationOperator) {
-<span class="nc" id="L52">        this.mutationOperator = mutationOperator;</span>
-<span class="nc" id="L53">    }</span>
+<span class="fc" id="L52">        this.mutationOperator = mutationOperator;</span>
+<span class="fc" id="L53">    }</span>
 
     public int[][] optimize(int[][] population) throws EvolutionaryAlgorithmException {
 
-<span class="nc bnc" id="L57" title="All 8 branches missed.">        if (population != null &amp;&amp; population.length &gt; 0 &amp;&amp; population[0]!=null &amp;&amp; population[0].length&gt;0) {</span>
+<span class="fc bfc" id="L57" title="All 8 branches covered.">        if (population != null &amp;&amp; population.length &gt; 0 &amp;&amp; population[0]!=null &amp;&amp; population[0].length&gt;0) {</span>
+
+<span class="fc bfc" id="L59" title="All 2 branches covered.">            if(population.length % 2 != 0){ //ERROR 1: Se debe validar que la poblacion sea par</span>
+<span class="fc" id="L60">                throw new EvolutionaryAlgorithmException(&quot;La poblacion debe ser par&quot;);</span>
+            }
+
             // Creamos una nueva población para los descendientes
-<span class="nc" id="L59">            int[][] offspringPopulation = new int[population.length][population.length];</span>
+<span class="fc" id="L64">            int[][] offspringPopulation = new int[population.length][population.length];</span>
 
             // Aplicamos operadores de selección y cruce para generar descendientes
-<span class="nc bnc" id="L62" title="All 2 branches missed.">            for (int i = 0; i &lt; population.length; i += 2) {</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">            for (int i = 0; i &lt; population.length; i += 2) {</span>
                 // Seleccionamos dos individuos de la población actual
-<span class="nc" id="L64">                int[] parent1 = selectionOperator.select(population[i]);</span>
-<span class="nc" id="L65">                int[] parent2 = selectionOperator.select(population[i + 1]);</span>
+<span class="fc" id="L69">                int[] parent1 = selectionOperator.select(population[i]);</span>
+<span class="fc" id="L70">                int[] parent2 = selectionOperator.select(population[i + 1]);</span>
 
                 // Aplicamos el operador de cruce para generar dos descendientes
-<span class="nc" id="L68">                int[][] offspring = crossoverOperator.crossover(parent1, parent2);</span>
-<span class="nc" id="L69">                offspringPopulation[i] = offspring[0];</span>
-<span class="nc" id="L70">                offspringPopulation[i + 1] = offspring[1];</span>
+<span class="fc" id="L73">                int[][] offspring = crossoverOperator.crossover(parent1, parent2);</span>
+<span class="fc" id="L74">                offspringPopulation[i] = offspring[0];</span>
+<span class="fc" id="L75">                offspringPopulation[i + 1] = offspring[1];</span>
             }
 
             // Aplicamos operador de mutación a los descendientes
-<span class="nc bnc" id="L74" title="All 2 branches missed.">            for (int i = 0; i &lt; offspringPopulation.length; i++) {</span>
-<span class="nc" id="L75">                offspringPopulation[i] = mutationOperator.mutate(offspringPopulation[i]);</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">            for (int i = 0; i &lt; offspringPopulation.length; i++) {</span>
+<span class="fc" id="L80">                offspringPopulation[i] = mutationOperator.mutate(offspringPopulation[i]);</span>
             }
 
             // Reemplazo
-<span class="nc bnc" id="L79" title="All 2 branches missed.">            for (int i = 0; i &lt; population.length; i++) {</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">                if (better(offspringPopulation[i], population[i])) {</span>
-<span class="nc" id="L81">                    population[i] = offspringPopulation[i];</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">            for (int i = 0; i &lt; population.length; i++) {</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">                if (better(offspringPopulation[i], population[i])) {</span>
+<span class="fc" id="L86">                    population[i] = offspringPopulation[i];</span>
                 }
             }
-<span class="nc" id="L84">        }else{</span>
-<span class="nc" id="L85">            throw new EvolutionaryAlgorithmException(&quot;Poblacion no valida&quot;);</span>
+<span class="fc" id="L89">        }else{</span>
+<span class="fc" id="L90">            throw new EvolutionaryAlgorithmException(&quot;Poblacion no valida&quot;);</span>
         }
-<span class="nc" id="L87">        return population;</span>
+<span class="fc" id="L92">        return population;</span>
     }
 
     /*
@@ -93,30 +98,30 @@ public class EvolutionaryAlgorithm {
      * como el que tiene menor suma de sus elementos
      */
     private boolean better(int[] population1, int[] population2) {
-<span class="nc" id="L96">        int suma1 = 0;</span>
-<span class="nc" id="L97">        int suma2 = 0;</span>
-<span class="nc bnc" id="L98" title="All 2 branches missed.">        for (int i = 0; i &lt; population1.length; i++) {</span>
-<span class="nc" id="L99">            suma1 += population1[i];</span>
-<span class="nc" id="L100">            suma2 += population2[i];</span>
+<span class="fc" id="L101">        int suma1 = 0;</span>
+<span class="fc" id="L102">        int suma2 = 0;</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">        for (int i = 0; i &lt; population1.length; i++) {</span>
+<span class="fc" id="L104">            suma1 += population1[i];</span>
+<span class="fc" id="L105">            suma2 += population2[i];</span>
         }
-<span class="nc bnc" id="L102" title="All 2 branches missed.">        return suma1 &lt; suma2;</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        return suma1 &lt; suma2;</span>
     }
 
     public SelectionOperator getSelectionOperator() {
-<span class="nc" id="L106">        return this.selectionOperator;</span>
+<span class="fc" id="L111">        return this.selectionOperator;</span>
     }
 
     public void setSelectionOperator(SelectionOperator selectionOperator) {
-<span class="nc" id="L110">        this.selectionOperator = selectionOperator;</span>
-<span class="nc" id="L111">    }</span>
+<span class="fc" id="L115">        this.selectionOperator = selectionOperator;</span>
+<span class="fc" id="L116">    }</span>
 
     public CrossoverOperator getCrossoverOperator() {
-<span class="nc" id="L114">        return this.crossoverOperator;</span>
+<span class="fc" id="L119">        return this.crossoverOperator;</span>
     }
 
     public void setCrossoverOperator(CrossoverOperator crossoverOperator) {
-<span class="nc" id="L118">        this.crossoverOperator = crossoverOperator;</span>
-<span class="nc" id="L119">    }</span>
+<span class="fc" id="L123">        this.crossoverOperator = crossoverOperator;</span>
+<span class="fc" id="L124">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

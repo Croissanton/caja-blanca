@@ -27,36 +27,36 @@ import org.mps.EvolutionaryAlgorithmException;
  */
 
 public class TournamentSelection implements SelectionOperator {
-<span class="nc" id="L30">    private Random random = new Random();</span>
+<span class="fc" id="L30">    private Random random = new Random();</span>
     private int tournamentSize;
 
-<span class="nc" id="L33">    public TournamentSelection(int tournamentSize) throws EvolutionaryAlgorithmException {</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (tournamentSize &gt; 0)</span>
-<span class="nc" id="L35">            this.tournamentSize = tournamentSize;</span>
+<span class="fc" id="L33">    public TournamentSelection(int tournamentSize) throws EvolutionaryAlgorithmException {</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (tournamentSize &gt; 0)</span>
+<span class="fc" id="L35">            this.tournamentSize = tournamentSize;</span>
         else
 <span class="nc" id="L37">            throw new EvolutionaryAlgorithmException(&quot;El tamanyo del torneo debe ser mayor que cero&quot;);</span>
 
-<span class="nc" id="L39">    }</span>
+<span class="fc" id="L39">    }</span>
 
     @Override
     public int[] select(int[] population) throws EvolutionaryAlgorithmException {
         int[] selected;
-<span class="nc bnc" id="L44" title="All 4 branches missed.">        if (population != null &amp;&amp; population.length &gt; 0) {</span>
-<span class="nc" id="L45">            selected = new int[population.length];</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">            for (int i = 0; i &lt; population.length; i++) {</span>
-<span class="nc" id="L47">                int best = -1;</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">                for (int j = 0; j &lt; tournamentSize; j++) {</span>
-<span class="nc" id="L49">                    int candidate = population[random.nextInt(population.length)];</span>
-<span class="nc bnc" id="L50" title="All 4 branches missed.">                    if (best == -1 || candidate &gt; best) {</span>
-<span class="nc" id="L51">                        best = candidate;</span>
+<span class="pc bpc" id="L44" title="2 of 4 branches missed.">        if (population != null &amp;&amp; population.length &gt; 0) {</span>
+<span class="fc" id="L45">            selected = new int[population.length];</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            for (int i = 0; i &lt; population.length; i++) {</span>
+<span class="fc" id="L47">                int best = -1;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">                for (int j = 0; j &lt; tournamentSize; j++) {</span>
+<span class="fc" id="L49">                    int candidate = population[random.nextInt(population.length)];</span>
+<span class="fc bfc" id="L50" title="All 4 branches covered.">                    if (best == -1 || candidate &gt; best) {</span>
+<span class="fc" id="L51">                        best = candidate;</span>
                     }
                 }
-<span class="nc" id="L54">                selected[i] = best;</span>
+<span class="fc" id="L54">                selected[i] = best;</span>
             }
         } else {
 <span class="nc" id="L57">            throw new EvolutionaryAlgorithmException(&quot;No se ha podido realizar la selección&quot;);</span>
         }
-<span class="nc" id="L59">        return selected;</span>
+<span class="fc" id="L59">        return selected;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
