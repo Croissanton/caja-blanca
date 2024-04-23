@@ -3,4 +3,4 @@ mps4,org.mps.mutation,SwapMutation,0,51,0,4,0,13,0,4,0,2
 mps4,org.mps.crossover,OnePointCrossover,0,92,0,12,0,16,0,8,0,2
 mps4,org.mps,EvolutionaryAlgorithmException,3,4,0,0,2,2,1,1,1,1
 mps4,org.mps,EvolutionaryAlgorithm,0,197,0,28,0,40,0,23,0,9
-mps4,org.mps.selection,TournamentSelection,10,64,3,11,2,15,3,6,0,2
+mps4,org.mps.selection,TournamentSelection,0,79,0,16,0,17,0,10,0,2

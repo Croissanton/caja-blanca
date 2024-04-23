@@ -22,7 +22,7 @@ public class EvolutionaryAlgorithmTest {
 
     @BeforeAll
     public static void setUp() throws EvolutionaryAlgorithmException {
-        selectionOperator = new TournamentSelection(5);
+        selectionOperator = new TournamentSelection(4);
         mutationOperator = new SwapMutation();
         crossoverOperator = new OnePointCrossover();
 
@@ -49,7 +49,7 @@ public class EvolutionaryAlgorithmTest {
     @DisplayName("optimize: si la poblacion es valida, deberia retornar la poblacion optimizada")
     public void optimize_whenPopulationIsValid_ReturnsOptimizedPopulation() throws EvolutionaryAlgorithmException {
         //Arrange
-        int[][] population = new int[][]{{1, 2, 3}, {4, 5, 6}};
+        int[][] population = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}};
 
         //Act & Assert
         assertDoesNotThrow(() -> evolutionaryAlgorithm.optimize(population));
@@ -76,7 +76,7 @@ public class EvolutionaryAlgorithmTest {
     @DisplayName("optimize: si la poblacion contiene individuos vacios, deberia lanzar una excepcion EvolutionaryAlgorithmException")
     public void optimize_whenPopulationContainsEmptyIndividuals_ReturnsException() throws EvolutionaryAlgorithmException {
         //Arrange
-        int[][] population = new int[][]{{}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}};
+        int[][] population = new int[][]{{}, {4, 5, 6, 7}, {8, 9, 10, 11}, {12, 13, 14, 15}};
 
         //Act & Assert
         assertThrows(EvolutionaryAlgorithmException.class, () -> evolutionaryAlgorithm.optimize(population));
