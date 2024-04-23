@@ -44,7 +44,7 @@ public class TournamentSelectionTest {
     }
 
     @Test
-    @DisplayName("Test for the select method, when the population is null, it should throw an exception")
+    @DisplayName("select: when the population is null, it should throw an exception")
     public void select_WhenNullPopulation_ThrowsEvolutionaryAlgorithmException() {
 
         // Arrange
@@ -55,7 +55,7 @@ public class TournamentSelectionTest {
     }
 
     @Test
-    @DisplayName("Test for the select method, when the population is empty, it should throw an exception")
+    @DisplayName("select: when the population is empty, it should throw an exception")
     public void select_WhenEmptyPopulation_ThrowsEvolutionaryAlgorithmException() {
 
         // Arrange
@@ -66,7 +66,7 @@ public class TournamentSelectionTest {
     }
 
     @Test
-    @DisplayName("Test for the TournamentSelection constructor, when the population size is less than 1 it should throw an exception")
+    @DisplayName("TournamentSelection: when the population size is less than 1 it should throw an exception")
     public void TournamentSelection_WhenPopulationSizeLessThanOne_ThrowsEvolutionaryAlgorithmException() {
 
         // Arrange
@@ -77,7 +77,7 @@ public class TournamentSelectionTest {
     }
 
     @Test
-    @DisplayName("Test for the select method, when the population size is different from tournament size, it should throw an exception")
+    @DisplayName("select: when the population size is different from tournament size, it should throw an exception")
     public void select_WhenPopulationSizeDifferentFromTournamentSize_ThrowsEvolutionaryAlgorithmException() throws EvolutionaryAlgorithmException {
 
         // Arrange
