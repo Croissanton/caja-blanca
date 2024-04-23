@@ -17,7 +17,7 @@ public class OnePointCrossoverTest {
     }
 
     @Test
-    @DisplayName("Test de prueba para el método crossover, cuando los padres son válidos, debe retornar los hijos")
+    @DisplayName("crossover: cuando los padres son válidos, debe retornar los hijos")
     public void crossover_WhenValidParents_ReturnsOffspring() {
 
         // Arrange
